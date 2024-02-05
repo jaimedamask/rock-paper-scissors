@@ -45,20 +45,20 @@ function game() {
         console.log(outcome);
     }
 
-    while (playerScore < 3 && computerScore < 3) {
+    //while (playerScore < 3 && computerScore < 3) {
         computerSelection = getComputerChoice();
         // console.log(computerSelection);
         playerSelection = prompt('Pick rock, paper, or scissors').toUpperCase();
         playRound(playerSelection, computerSelection);
         
         console.log(playerScore, computerScore);
-    }
+    //}
 
-    if (playerScore < computerScore) {
+    /* if (playerScore < computerScore) {
         console.log('You lost. Refresh the page to try again.');
     } else {
         console.log('You won! Great job!');
-    }
+    } */
 }
 
 game();
