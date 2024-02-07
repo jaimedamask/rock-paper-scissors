@@ -2,7 +2,7 @@
 const possibleChoices = ['ROCK', 'PAPER', 'SCISSORS'];
 
 // Randomly returns either 'Rock,' 'Paper,' or 'Scissors' by returning string at randomized index position in possibleChoices
-function getComputerChoice() {
+function getComputerSelection() {
     return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 }
 
@@ -28,37 +28,23 @@ let playerSelection; // Holds player response to prompt for play
 // Declare winner of the most rounds
 
 
-function game() {
+const choices = document.getElementById('btn-container');
+
+choices.addEventListener('click', e => {
     let outcome;
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection != 'ROCK' && playerSelection != 'PAPER' && playerSelection != 'SCISSORS') {
-                outcome = "That's not a valid choice. Please try again.";
-        } else if (playerSelection == computerSelection) {
-                outcome = "It's a draw! Try again!";
+	if (e.target.matches('button')) {
+		const button = e.target;
+		playerSelection = button.textContent.toUpperCase();
+        computerSelection = getComputerSelection();
+        if (playerSelection === computerSelection) {
+            outcome = "It's a draw! Try again!";
         } else if ((playerSelection == 'ROCK' && computerSelection == 'SCISSORS') || (playerSelection == 'PAPER' && computerSelection == 'ROCK') || (playerSelection == 'SCISSORS' && computerSelection == 'PAPER')) {
-            outcome = 'You won! ' + playerSelection + ' beats ' + computerSelection + '!';
+            outcome = `You won! ${playerSelection} beats ${computerSelection}!`;
             playerScore += 1;
         } else {
-            outcome = 'You lost! ' + computerSelection + ' beats ' + playerSelection + '!';
+            outcome = `You lost! ${computerSelection} beats ${playerSelection}!`;
             computerScore += 1;
         }
         console.log(outcome);
-    }
-
-    //while (playerScore < 3 && computerScore < 3) {
-        computerSelection = getComputerChoice();
-        // console.log(computerSelection);
-        playerSelection = prompt('Pick rock, paper, or scissors').toUpperCase();
-        playRound(playerSelection, computerSelection);
-        
-        console.log(playerScore, computerScore);
-    //}
-
-    /* if (playerScore < computerScore) {
-        console.log('You lost. Refresh the page to try again.');
-    } else {
-        console.log('You won! Great job!');
-    } */
-}
-
-game();
+	}
+})
