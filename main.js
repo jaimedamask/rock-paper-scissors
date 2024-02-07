@@ -21,8 +21,9 @@ const choices = document.getElementById('btn-container');
 
 choices.addEventListener('click', e => {
     let outcome;
-    if (matchCount < 5) {
-        if (e.target.matches('button')) {
+    if (e.target.matches('button')) {
+        if (matchCount <= 5) {
+            finalOutcomeEl.textContent = '';
             const button = e.target;
             playerSelection = button.textContent.toUpperCase();
             computerSelection = getComputerSelection();
@@ -37,13 +38,20 @@ choices.addEventListener('click', e => {
                 computerScore += 1;
                 matchCount += 1;
             }
-            roundOutcome.textContent = outcome;
-            playerScoreEl.textContent = playerScore;
-            computerScoreEl.textContent = computerScore;
         }
-    } else if (playerScore > computerScore) {
-        finalOutcomeEl.textContent = 'You won! Great job!';
-    } else if (playerScore < computerScore) {
-        finalOutcomeEl.textContent = 'You lost. Refresh the page to try again.';
+        roundOutcome.textContent = outcome;
+        playerScoreEl.textContent = playerScore;
+        computerScoreEl.textContent = computerScore;
+        
+        if (matchCount === 5) {
+            if (playerScore > computerScore) {
+                    finalOutcomeEl.textContent = 'You won! Great job!';
+                } else if (playerScore < computerScore) {
+                    finalOutcomeEl.textContent = 'You lost. Click your next selection to try again.';
+                }
+            matchCount = 0;
+            playerScore = 0;
+            computerScore = 0;
+        }
     }
 })
