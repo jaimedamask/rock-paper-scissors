@@ -4,6 +4,7 @@ const possibleChoices = ['ROCK', 'PAPER', 'SCISSORS'];
 const roundOutcome = document.getElementById('round-outcome');
 const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
+const finalOutcomeEl = document.getElementById('final-outcome');
 
 // Randomly returns either 'Rock,' 'Paper,' or 'Scissors' by returning string at randomized index position in possibleChoices
 function getComputerSelection() {
@@ -15,7 +16,7 @@ let computerScore = 0; // Keeps track of number of rounds computer wins
 let playerSelection; // Holds player response to prompt for play
 let playerScore = 0; // Keeps track of number of rounds player wins
 let matchCount = 0;
-let finalOutcomeEl = document.getElementById('final-outcome');
+
 
 const choices = document.getElementById('btn-container');
 
