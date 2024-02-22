@@ -5,7 +5,6 @@
 
 body {
     align-items: center;
-    /* background-color: #0a1c20; */
     background-color: #91CCE9;
     color: #000;
     display: flex;
@@ -38,18 +37,14 @@ button {
 }
 
 #rock {
-    /*background-color: #41a6de; */
-    /*background-color: #1e61f1;*/
     background-color: #55B0DD;
 }
 
 #paper {
-    /*background-color: #fedb0e;*/
     background-color: #dddd55;
 }
 
 #scissors {
-    /*background-color: #f6343c;*/
     background-color: #de5555;
 }
 
@@ -59,35 +54,6 @@ button {
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
-}
-
-.round-container {
-    background-color: #fff;
-    border-radius: 10px;
-    color: #000; 
-    padding: 15px;
-    position: relative;
-}
-
-#round-container:after {
-    border-color: #fff transparent;
-    border-style: solid;
-    border-width: 15px 15px 0;
-    bottom: -15px;
-    content: '';
-    display: block;
-    left: 5px;
-    padding-bottom: 10px;
-    position: absolute;
-    width: 0;
-}
-
-.final-container:empty, .round-container:empty {
-    display: none;
-}
-
-#final-outcome {
-    font-size: 24px;
 }
 
 #score-container {
@@ -112,15 +78,67 @@ h2 {
 }
 
 #player-results{
-    /*background-color: #33d248;*/
-    /* background-color: #dd55b0; */
-    /* background-color: #A85FFC; */
     background-color: #E9E991;
 }
 
 #computer-results {
-    /*background-color: #775688;*/
-    /* background-color: #55dddd;  Tiffany Blue */
-    /* background-color: #5EFCA8; */
     background-color: #E99191;
+}
+
+#outcome-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.outcome {
+    background-color: #fff;
+    margin: 1em 0 3em;
+    padding: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.outcome:empty {
+    display: none;
+}
+
+#round-outcome::before {
+    border: 0;
+    border-color: transparent #fff;
+    border-bottom-width: 20px;
+    border-right-width: 30px;
+    border-style: solid;
+    bottom: -20px;
+    content: '';
+    display: block;
+    left: 60px;
+    position: absolute;
+    width: 0;
+}
+
+#round-outcome {
+    font-size: 20px;
+}
+
+#final-outcome::before {
+    border: 0;
+    border-color: transparent #fff;
+    border-bottom-width: 20px;
+    border-left-width: 30px;
+    border-style: solid;
+    bottom: -20px;
+    content: '';
+    display: block;
+    right: 60px;
+    position: absolute;
+    width: 0;
+}
+
+#final-outcome {
+    font-size: 24px;
+}
+
+#round-outcome {
+    max-width: fit-content;
 }
