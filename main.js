@@ -1,4 +1,3 @@
-// Create array possibleChoices with pool of possible plays
 const possibleChoices = ['ROCK', 'PAPER', 'SCISSORS'];
 
 const roundOutcome = document.getElementById('round-outcome');
@@ -6,15 +5,15 @@ const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const finalOutcomeEl = document.getElementById('final-outcome');
 
-// Randomly returns either 'Rock,' 'Paper,' or 'Scissors' by returning string at randomized index position in possibleChoices
+// Randomly returns either 'Rock,' 'Paper,' or 'Scissors' from possibleChoices
 function getComputerSelection() {
     return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 }
 
-let computerSelection; // Stores computer selection for each round
-let computerScore = 0; // Keeps track of number of rounds computer wins
-let playerSelection; // Holds player response to prompt for play
-let playerScore = 0; // Keeps track of number of rounds player wins
+let computerSelection; 
+let playerSelection;
+let computerScore = 0;
+let playerScore = 0;
 let matchCount = 0;
 
 
